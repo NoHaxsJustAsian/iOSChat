@@ -9,13 +9,21 @@
 /* Begin PBXBuildFile section */
 		F25AAB752A368F56001C9776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AAB742A368F56001C9776 /* AppDelegate.swift */; };
 		F25AAB772A368F56001C9776 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AAB762A368F56001C9776 /* SceneDelegate.swift */; };
-		F25AAB792A368F56001C9776 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AAB782A368F56001C9776 /* ViewController.swift */; };
 		F25AAB7C2A368F56001C9776 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F25AAB7A2A368F56001C9776 /* Main.storyboard */; };
 		F25AAB7E2A368F59001C9776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F25AAB7D2A368F59001C9776 /* Assets.xcassets */; };
 		F25AAB812A368F59001C9776 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F25AAB7F2A368F59001C9776 /* LaunchScreen.storyboard */; };
-		F25AAB8C2A368F59001C9776 /* iOSChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AAB8B2A368F59001C9776 /* iOSChatTests.swift */; };
-		F25AAB962A368F59001C9776 /* iOSChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AAB952A368F59001C9776 /* iOSChatUITests.swift */; };
-		F25AAB982A368F59001C9776 /* iOSChatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AAB972A368F59001C9776 /* iOSChatUITestsLaunchTests.swift */; };
+		F25AABAC2A369521001C9776 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABA62A369520001C9776 /* ViewController.swift */; };
+		F25AABAD2A369521001C9776 /* ContactsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABA72A369520001C9776 /* ContactsTableViewManager.swift */; };
+		F25AABAE2A369521001C9776 /* RightBarButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABA82A369520001C9776 /* RightBarButtonManager.swift */; };
+		F25AABAF2A369521001C9776 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABAA2A369520001C9776 /* ContactsTableViewCell.swift */; };
+		F25AABB02A369521001C9776 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABAB2A369520001C9776 /* MainScreenView.swift */; };
+		F25AABB32A369535001C9776 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABB22A369535001C9776 /* Contact.swift */; };
+		F25AABB82A369540001C9776 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABB52A369540001C9776 /* AddContactViewController.swift */; };
+		F25AABB92A369540001C9776 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABB72A369540001C9776 /* AddContactView.swift */; };
+		F25AABC02A369573001C9776 /* RegisterFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABBB2A369572001C9776 /* RegisterFirebaseManager.swift */; };
+		F25AABC12A369573001C9776 /* RegisterProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABBC2A369572001C9776 /* RegisterProgressIndicatorManager.swift */; };
+		F25AABC22A369573001C9776 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABBE2A369572001C9776 /* RegisterView.swift */; };
+		F25AABC32A369573001C9776 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABBF2A369572001C9776 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,16 +47,24 @@
 		F25AAB712A368F56001C9776 /* iOSChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F25AAB742A368F56001C9776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F25AAB762A368F56001C9776 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F25AAB782A368F56001C9776 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F25AAB7B2A368F56001C9776 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F25AAB7D2A368F59001C9776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F25AAB802A368F59001C9776 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F25AAB822A368F59001C9776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F25AAB872A368F59001C9776 /* iOSChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F25AAB8B2A368F59001C9776 /* iOSChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSChatTests.swift; sourceTree = "<group>"; };
 		F25AAB912A368F59001C9776 /* iOSChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F25AAB952A368F59001C9776 /* iOSChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSChatUITests.swift; sourceTree = "<group>"; };
-		F25AAB972A368F59001C9776 /* iOSChatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSChatUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F25AABA62A369520001C9776 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F25AABA72A369520001C9776 /* ContactsTableViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewManager.swift; sourceTree = "<group>"; };
+		F25AABA82A369520001C9776 /* RightBarButtonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightBarButtonManager.swift; sourceTree = "<group>"; };
+		F25AABAA2A369520001C9776 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		F25AABAB2A369520001C9776 /* MainScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		F25AABB22A369535001C9776 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		F25AABB52A369540001C9776 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		F25AABB72A369540001C9776 /* AddContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		F25AABBB2A369572001C9776 /* RegisterFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFirebaseManager.swift; sourceTree = "<group>"; };
+		F25AABBC2A369572001C9776 /* RegisterProgressIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterProgressIndicatorManager.swift; sourceTree = "<group>"; };
+		F25AABBE2A369572001C9776 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		F25AABBF2A369572001C9776 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				F25AAB732A368F56001C9776 /* iOSChat */,
-				F25AAB8A2A368F59001C9776 /* iOSChatTests */,
-				F25AAB942A368F59001C9776 /* iOSChatUITests */,
 				F25AAB722A368F56001C9776 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,30 +115,80 @@
 			children = (
 				F25AAB742A368F56001C9776 /* AppDelegate.swift */,
 				F25AAB762A368F56001C9776 /* SceneDelegate.swift */,
-				F25AAB782A368F56001C9776 /* ViewController.swift */,
 				F25AAB7A2A368F56001C9776 /* Main.storyboard */,
 				F25AAB7D2A368F59001C9776 /* Assets.xcassets */,
 				F25AAB7F2A368F59001C9776 /* LaunchScreen.storyboard */,
 				F25AAB822A368F59001C9776 /* Info.plist */,
+				F25AABBA2A369572001C9776 /* Register Screen */,
+				F25AABB42A369540001C9776 /* Add Contact Screen */,
+				F25AABB12A369535001C9776 /* Data Models */,
+				F25AABA52A369520001C9776 /* Main Screen  */,
 			);
 			path = iOSChat;
 			sourceTree = "<group>";
 		};
-		F25AAB8A2A368F59001C9776 /* iOSChatTests */ = {
+		F25AABA52A369520001C9776 /* Main Screen  */ = {
 			isa = PBXGroup;
 			children = (
-				F25AAB8B2A368F59001C9776 /* iOSChatTests.swift */,
+				F25AABA62A369520001C9776 /* ViewController.swift */,
+				F25AABA72A369520001C9776 /* ContactsTableViewManager.swift */,
+				F25AABA82A369520001C9776 /* RightBarButtonManager.swift */,
+				F25AABA92A369520001C9776 /* Views */,
 			);
-			path = iOSChatTests;
+			path = "Main Screen ";
 			sourceTree = "<group>";
 		};
-		F25AAB942A368F59001C9776 /* iOSChatUITests */ = {
+		F25AABA92A369520001C9776 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F25AAB952A368F59001C9776 /* iOSChatUITests.swift */,
-				F25AAB972A368F59001C9776 /* iOSChatUITestsLaunchTests.swift */,
+				F25AABAA2A369520001C9776 /* ContactsTableViewCell.swift */,
+				F25AABAB2A369520001C9776 /* MainScreenView.swift */,
 			);
-			path = iOSChatUITests;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F25AABB12A369535001C9776 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				F25AABB22A369535001C9776 /* Contact.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		F25AABB42A369540001C9776 /* Add Contact Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F25AABB52A369540001C9776 /* AddContactViewController.swift */,
+				F25AABB62A369540001C9776 /* Views */,
+			);
+			path = "Add Contact Screen";
+			sourceTree = "<group>";
+		};
+		F25AABB62A369540001C9776 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F25AABB72A369540001C9776 /* AddContactView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F25AABBA2A369572001C9776 /* Register Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F25AABBB2A369572001C9776 /* RegisterFirebaseManager.swift */,
+				F25AABBC2A369572001C9776 /* RegisterProgressIndicatorManager.swift */,
+				F25AABBD2A369572001C9776 /* Views */,
+				F25AABBF2A369572001C9776 /* RegisterViewController.swift */,
+			);
+			path = "Register Screen";
+			sourceTree = "<group>";
+		};
+		F25AABBD2A369572001C9776 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F25AABBE2A369572001C9776 /* RegisterView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +322,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F25AAB792A368F56001C9776 /* ViewController.swift in Sources */,
+				F25AABAC2A369521001C9776 /* ViewController.swift in Sources */,
+				F25AABB92A369540001C9776 /* AddContactView.swift in Sources */,
+				F25AABC22A369573001C9776 /* RegisterView.swift in Sources */,
+				F25AABAE2A369521001C9776 /* RightBarButtonManager.swift in Sources */,
+				F25AABC02A369573001C9776 /* RegisterFirebaseManager.swift in Sources */,
+				F25AABB02A369521001C9776 /* MainScreenView.swift in Sources */,
+				F25AABB82A369540001C9776 /* AddContactViewController.swift in Sources */,
+				F25AABAF2A369521001C9776 /* ContactsTableViewCell.swift in Sources */,
+				F25AABC12A369573001C9776 /* RegisterProgressIndicatorManager.swift in Sources */,
+				F25AABC32A369573001C9776 /* RegisterViewController.swift in Sources */,
+				F25AABB32A369535001C9776 /* Contact.swift in Sources */,
 				F25AAB752A368F56001C9776 /* AppDelegate.swift in Sources */,
+				F25AABAD2A369521001C9776 /* ContactsTableViewManager.swift in Sources */,
 				F25AAB772A368F56001C9776 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +343,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F25AAB8C2A368F59001C9776 /* iOSChatTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,8 +350,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F25AAB982A368F59001C9776 /* iOSChatUITestsLaunchTests.swift in Sources */,
-				F25AAB962A368F59001C9776 /* iOSChatUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
