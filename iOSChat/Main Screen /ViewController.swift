@@ -52,9 +52,9 @@ class ViewController: UIViewController {
                         do {
                             let user = try document.data(as: User.self)
                             self.currentUser = user
-                            self.mainScreen.labelText.text = "Welcome (user.name)!"
+                            self.mainScreen.labelText.text = "Welcome \(user.name)!"
                         } catch {
-                            print("Error decoding user data: (error)")
+                            print("Error decoding user data: \(error)")
                         }
                     } else {
                         print("User document does not exist")
@@ -65,17 +65,24 @@ class ViewController: UIViewController {
                 self.setupRightBarButton(isLoggedin: true)
                 
                 //MARK: Observe Firestore database to display the contacts list...
-                self.database.collection("users").getDocuments() { (querySnapshot, err) in
-                    if let err = err {
-                        print("Error getting documents: \(err)")
+                self.database.collection("users").getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print("Error getting documents: \(error)")
                     } else {
-                        var userIds: [String] = []
+                        var userIds: [User] = []
                         for document in querySnapshot!.documents {
-                            if (document.documentID != self.currentUser?.id) {
-                                userIds.append(document.documentID)
+                            do {
+                                if (document.documentID != self.currentUser?.id) {
+                                    let user = try document.data(as: User.self)
+                                    userIds.append(user)
+                                }
+                            } catch {
+                                print("Error decoding user data: \(error)")
                             }
                         }
-                        self.usersList.sort(by: {$0.name < $1.name})
+                        self.usersList = userIds.sorted { $0.name < $1.name }
+                        print("userlist: ", self.usersList)
+                        print("end")
                         self.mainScreen.tableViewContacts.reloadData()
                     }
                 }

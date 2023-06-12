@@ -37,16 +37,14 @@ class MainScreenView: UIView {
     //MARK: setting up constraints...
     func initConstraints(){
         NSLayoutConstraint.activate([
-
             labelText.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            labelText.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            labelText.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 8),
+            labelText.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            labelText.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
             tableViewContacts.topAnchor.constraint(equalTo: labelText.bottomAnchor, constant: 8),
             tableViewContacts.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             tableViewContacts.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             tableViewContacts.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            
         ])
     }
     
