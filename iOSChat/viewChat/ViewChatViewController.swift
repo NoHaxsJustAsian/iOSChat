@@ -12,7 +12,7 @@ class ViewChatViewController: UIViewController {
     let viewChatView = ViewChatView()
     var userSelf: User! // should be getting passed in from the previous page
     var userOther: User!
-    
+    var chatID: String!
     override func loadView() {
         view = viewChatView
     }
@@ -21,10 +21,13 @@ class ViewChatViewController: UIViewController {
         super.viewDidLoad()
         title = "" //User Other's Name
         
+        viewChatView.buttonSend.addTarget(self, action: #selector(onButtonSendTapped), for: .touchUpInside)
+        
         getAllChats()
         
         //set userSelf
         //set userOther
+        //var chat = // auth.findChat([user1 user2].sort)
         //set colorChat for Self
         //set colorChat for Other (note these two could be included in getAllChats
         //load entire fucking table
@@ -35,6 +38,16 @@ class ViewChatViewController: UIViewController {
                 false);
         
     }
+    
+    @objc func onButtonSendTapped(){
+        var currentDate = Date()
+        if let textSend = viewChatView.messageField.text {
+            var newMessage = Message(name: userSelf.name, text: textSend, date: currentDate)
+            //add data to database
+            //send request to refresh data and reload table or call getAllChats
+        }
+    }
+    
     func getAllChats(){
         //use users to search firebase storage for chat id, and respective chat info and populate table.
         //call method when message is sent or recieved.

@@ -13,17 +13,12 @@ class ContactsTableViewCell: UITableViewCell {
     
     var wrapperCellView: UIView!
     var labelName: UILabel!
-    var labelEmail: UILabel!
-    var labelPhone: UILabel!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupWrapperCellView()
         setupLabelName()
-        setupLabelEmail()
-        setupLabelPhone()
-        
         initConstraints()
     }
     
@@ -52,20 +47,6 @@ class ContactsTableViewCell: UITableViewCell {
         wrapperCellView.addSubview(labelName)
     }
     
-    func setupLabelEmail(){
-        labelEmail = UILabel()
-        labelEmail.font = UIFont.boldSystemFont(ofSize: 14)
-        labelEmail.translatesAutoresizingMaskIntoConstraints = false
-        wrapperCellView.addSubview(labelEmail)
-    }
-    
-    func setupLabelPhone(){
-        labelPhone = UILabel()
-        labelPhone.font = UIFont.boldSystemFont(ofSize: 14)
-        labelPhone.translatesAutoresizingMaskIntoConstraints = false
-        wrapperCellView.addSubview(labelPhone)
-    }
-    
     func initConstraints(){
         NSLayoutConstraint.activate([
             wrapperCellView.topAnchor.constraint(equalTo: self.topAnchor,constant: 10),
@@ -78,17 +59,7 @@ class ContactsTableViewCell: UITableViewCell {
             labelName.heightAnchor.constraint(equalToConstant: 20),
             labelName.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
             
-            labelEmail.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 2),
-            labelEmail.leadingAnchor.constraint(equalTo: labelName.leadingAnchor),
-            labelEmail.heightAnchor.constraint(equalToConstant: 16),
-            labelEmail.widthAnchor.constraint(lessThanOrEqualTo: labelName.widthAnchor),
-            
-            labelPhone.topAnchor.constraint(equalTo: labelEmail.bottomAnchor, constant: 2),
-            labelPhone.leadingAnchor.constraint(equalTo: labelEmail.leadingAnchor),
-            labelPhone.heightAnchor.constraint(equalToConstant: 16),
-            labelPhone.widthAnchor.constraint(lessThanOrEqualTo: labelName.widthAnchor),
-            
-            wrapperCellView.heightAnchor.constraint(equalToConstant: 72)
+            wrapperCellView.heightAnchor.constraint(equalToConstant: 24)
         ])
     }
 

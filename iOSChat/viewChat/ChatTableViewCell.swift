@@ -77,7 +77,7 @@ class ChatTableViewCell: UITableViewCell {
             labelTime.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: -10),
             labelTime.bottomAnchor.constraint(equalTo: wrapperCellView.bottomAnchor, constant: -8),
             
-            wrapperCellView.heightAnchor.constraint(greaterThanOrEqualToConstant: 108)
+            wrapperCellView.heightAnchor.constraint(greaterThanOrEqualToConstant: 72)
         ])
         
         labelName.setContentCompressionResistancePriority(.required, for: .vertical)

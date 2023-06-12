@@ -32,6 +32,7 @@
 		F25AABC82A3698D1001C9776 /* ViewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABC72A3698D1001C9776 /* ViewChatViewController.swift */; };
 		F25AABCA2A3698F1001C9776 /* ViewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABC92A3698F1001C9776 /* ViewChatView.swift */; };
 		F25AABCC2A369B01001C9776 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABCB2A369B01001C9776 /* ChatTableViewCell.swift */; };
+		F25AABCE2A36A944001C9776 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABCD2A36A944001C9776 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		F25AABC72A3698D1001C9776 /* ViewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChatViewController.swift; sourceTree = "<group>"; };
 		F25AABC92A3698F1001C9776 /* ViewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChatView.swift; sourceTree = "<group>"; };
 		F25AABCB2A369B01001C9776 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		F25AABCD2A36A944001C9776 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				F25AABB22A369535001C9776 /* Contact.swift */,
+				F25AABCD2A36A944001C9776 /* Message.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				F25AABAC2A369521001C9776 /* ViewController.swift in Sources */,
 				F25AABC82A3698D1001C9776 /* ViewChatViewController.swift in Sources */,
 				F25AABB92A369540001C9776 /* AddContactView.swift in Sources */,
+				F25AABCE2A36A944001C9776 /* Message.swift in Sources */,
 				F25AABCA2A3698F1001C9776 /* ViewChatView.swift in Sources */,
 				F25AABC22A369573001C9776 /* RegisterView.swift in Sources */,
 				F25AABAE2A369521001C9776 /* RightBarButtonManager.swift in Sources */,

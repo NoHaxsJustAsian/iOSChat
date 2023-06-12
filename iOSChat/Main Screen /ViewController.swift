@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             if user == nil{
                 //MARK: not signed in...
                 self.currentUser = nil
-                self.mainScreen.labelText.text = "Please sign in to see the notes!"
+                self.mainScreen.labelText.text = "Please sign in to see the chats!"
                 self.mainScreen.floatingButtonAddContact.isEnabled = false
                 self.mainScreen.floatingButtonAddContact.isHidden = true
                 
