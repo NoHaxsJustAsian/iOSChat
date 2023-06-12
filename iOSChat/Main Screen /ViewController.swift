@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     let database = Firestore.firestore()
     
+    let childProgressView = ProgressSpinnerViewController()
+    
     override func loadView() {
         view = mainScreen
     }
@@ -92,12 +94,6 @@ class ViewController: UIViewController {
         
         //MARK: Make the titles look large...
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-        //MARK: Put the floating button above all the views...
-        view.bringSubviewToFront(mainScreen.floatingButtonAddContact)
-        
-        //MARK: tapping the floating add contact button...
-        mainScreen.floatingButtonAddContact.addTarget(self, action: #selector(addContactButtonTapped), for: .touchUpInside)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -107,12 +103,6 @@ class ViewController: UIViewController {
     
     func signIn(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password)
-    }
-    
-    @objc func addContactButtonTapped(){
-        let addContactController = AddContactViewController()
-        addContactController.currentUser = self.currentUser
-        navigationController?.pushViewController(addContactController, animated: true)
     }
     
     func openChat(user: User){

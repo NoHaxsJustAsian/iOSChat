@@ -23,8 +23,6 @@
 		F25AABAF2A369521001C9776 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABAA2A369520001C9776 /* ContactsTableViewCell.swift */; };
 		F25AABB02A369521001C9776 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABAB2A369520001C9776 /* MainScreenView.swift */; };
 		F25AABB32A369535001C9776 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABB22A369535001C9776 /* User.swift */; };
-		F25AABB82A369540001C9776 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABB52A369540001C9776 /* AddContactViewController.swift */; };
-		F25AABB92A369540001C9776 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABB72A369540001C9776 /* AddContactView.swift */; };
 		F25AABC02A369573001C9776 /* RegisterFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABBB2A369572001C9776 /* RegisterFirebaseManager.swift */; };
 		F25AABC12A369573001C9776 /* RegisterProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABBC2A369572001C9776 /* RegisterProgressIndicatorManager.swift */; };
 		F25AABC22A369573001C9776 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABBE2A369572001C9776 /* RegisterView.swift */; };
@@ -72,8 +70,6 @@
 		F25AABAA2A369520001C9776 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
 		F25AABAB2A369520001C9776 /* MainScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		F25AABB22A369535001C9776 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		F25AABB52A369540001C9776 /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
-		F25AABB72A369540001C9776 /* AddContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
 		F25AABBB2A369572001C9776 /* RegisterFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFirebaseManager.swift; sourceTree = "<group>"; };
 		F25AABBC2A369572001C9776 /* RegisterProgressIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		F25AABBE2A369572001C9776 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -146,7 +142,6 @@
 				F25AABCF2A36BA00001C9776 /* Progress Indicator */,
 				F25AABC42A3698A9001C9776 /* viewChat */,
 				F25AABBA2A369572001C9776 /* Register Screen */,
-				F25AABB42A369540001C9776 /* Add Contact Screen */,
 				F25AABB12A369535001C9776 /* Data Models */,
 				F25AABA52A369520001C9776 /* Main Screen  */,
 				40C4ACC62A36C5CD00389451 /* .gitignore.md */,
@@ -181,23 +176,6 @@
 				F25AABCD2A36A944001C9776 /* Message.swift */,
 			);
 			path = "Data Models";
-			sourceTree = "<group>";
-		};
-		F25AABB42A369540001C9776 /* Add Contact Screen */ = {
-			isa = PBXGroup;
-			children = (
-				F25AABB52A369540001C9776 /* AddContactViewController.swift */,
-				F25AABB62A369540001C9776 /* Views */,
-			);
-			path = "Add Contact Screen";
-			sourceTree = "<group>";
-		};
-		F25AABB62A369540001C9776 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				F25AABB72A369540001C9776 /* AddContactView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		F25AABBA2A369572001C9776 /* Register Screen */ = {
@@ -381,7 +359,6 @@
 			files = (
 				F25AABAC2A369521001C9776 /* ViewController.swift in Sources */,
 				F25AABC82A3698D1001C9776 /* ViewChatViewController.swift in Sources */,
-				F25AABB92A369540001C9776 /* AddContactView.swift in Sources */,
 				F25AABCE2A36A944001C9776 /* Message.swift in Sources */,
 				F25AABD22A36BA01001C9776 /* ProgressSpinnerViewController.swift in Sources */,
 				F25AABCA2A3698F1001C9776 /* ViewChatView.swift in Sources */,
@@ -389,7 +366,6 @@
 				F25AABAE2A369521001C9776 /* RightBarButtonManager.swift in Sources */,
 				F25AABC02A369573001C9776 /* RegisterFirebaseManager.swift in Sources */,
 				F25AABB02A369521001C9776 /* MainScreenView.swift in Sources */,
-				F25AABB82A369540001C9776 /* AddContactViewController.swift in Sources */,
 				F25AABAF2A369521001C9776 /* ContactsTableViewCell.swift in Sources */,
 				F25AABC12A369573001C9776 /* RegisterProgressIndicatorManager.swift in Sources */,
 				F25AABC32A369573001C9776 /* RegisterViewController.swift in Sources */,

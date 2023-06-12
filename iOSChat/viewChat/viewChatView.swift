@@ -35,7 +35,7 @@ class ViewChatView: UIView {
     
     func setupTableViewChat(){
         tableViewChat = UITableView()
-        tableViewChat.register(ChatTableViewCell.self, forCellReuseIdentifier: "notes")
+        tableViewChat.register(ChatTableViewCell.self, forCellReuseIdentifier: "chat")
         tableViewChat.translatesAutoresizingMaskIntoConstraints = false
         contentWrapper.addSubview(tableViewChat)
     }

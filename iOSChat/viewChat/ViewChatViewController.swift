@@ -30,8 +30,6 @@ class ViewChatViewController: UIViewController {
         //set userSelf
         //set userOther
         //var chat = // auth.findChat([user1 user2].sort)
-        //set colorChat for Self
-        //set colorChat for Other (note these two could be included in getAllChats
         //load entire fucking table
         //SCROLL TO BOTTOM USING THIS THING BELOW.
         tableV_Chat.ScrollToRow(
@@ -59,17 +57,29 @@ class ViewChatViewController: UIViewController {
     }
 }
 
-    extension ViewChatViewController: UITableViewDelegate, UITableViewDataSource{
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return chatList.count //this has to be changed to chat messages count
+extension ViewChatViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return chatList.count //this has to be changed to chat messages count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chat", for: indexPath) as! ChatTableViewCell
+        cell.labelText.text = chatList[indexPath.row].text
+        cell.labelName.text = chatList[indexPath.row].name
+        cell.labelTime.text = chatList[indexPath.row].date
+        if chatList[indexPath.row].name == userSelf.name {
+            cell.backgroundColor = UIColor.blue
+            cell.labelText.textAlignment = .right
+            cell.labelName.textAlignment = .right
+            cell.labelTime.textAlignment = .right
         }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "names", for: indexPath) as! ChatTableViewCell
-            cell.labelText.text = chatList[indexPath.row].text
-            cell.labelName.text = chatList[indexPath.row].name
-            cell.labelTime.text = chatList[indexPath.row].date
-            return cell
+        else{
+            cell.backgroundColor = UIColor.gray
+            cell.labelText.textAlignment = .left
+            cell.labelName.textAlignment = .left
+            cell.labelTime.textAlignment = .left
         }
-        
+        return cell
+    }
 }
+        

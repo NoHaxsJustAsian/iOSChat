@@ -115,12 +115,11 @@ extension ViewController{
     }
     
     func signInToFirebase(email: String, password: String){
-        //MARK: can you display progress indicator here?
-        //MARK: authenticating the user...
+        showActivityIndicator()
         Auth.auth().signIn(withEmail: email, password: password, completion: {(result, error) in
             if error == nil{
                 //MARK: user authenticated...
-                //MARK: can you hide the progress indicator here?
+                self.hideActivityIndicator()
             }else{
                 self.showAlert(title: "Error!", message: "No user found or wrong password!")
             }
@@ -135,6 +134,20 @@ extension ViewController{
         
         self.present(alert, animated: true)
 
+    }
+}
+
+extension ViewController:ProgressSpinnerDelegate{
+    func showActivityIndicator(){
+        addChild(childProgressView)
+        view.addSubview(childProgressView.view)
+        childProgressView.didMove(toParent: self)
+    }
+    
+    func hideActivityIndicator(){
+        childProgressView.willMove(toParent: nil)
+        childProgressView.view.removeFromSuperview()
+        childProgressView.removeFromParent()
     }
 }
 

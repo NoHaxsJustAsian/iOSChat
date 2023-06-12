@@ -9,7 +9,6 @@ import UIKit
 
 class MainScreenView: UIView {
     var labelText: UILabel!
-    var floatingButtonAddContact: UIButton!
     var tableViewContacts: UITableView!
     
     override init(frame: CGRect) {
@@ -29,12 +28,10 @@ class MainScreenView: UIView {
     
     func setupTableViewContacts(){
         tableViewContacts = UITableView()
-        tableViewContacts.register(ContactsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewContactsID)
+        tableViewContacts.register(ContactsTableViewCell.self, forCellReuseIdentifier: "users")
         tableViewContacts.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(tableViewContacts)
     }
-    
-
     
     
     //MARK: setting up constraints...
