@@ -8,15 +8,11 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-struct Contact: Codable{
+struct User: Codable{
     @DocumentID var id: String?
     var name: String
-    var email: String
-    var phone: Int
     
-    init(name: String, email: String, phone: Int) {
+    init(name: String) {
         self.name = name
-        self.email = email
-        self.phone = phone
     }
 }

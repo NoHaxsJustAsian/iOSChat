@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewChatViewController: UIViewController {
     var delegate:ViewController!
@@ -13,6 +14,7 @@ class ViewChatViewController: UIViewController {
     var userSelf: User! // should be getting passed in from the previous page
     var userOther: User!
     var chatID: String!
+    var chatList = [Message]()
     override func loadView() {
         view = viewChatView
     }
@@ -41,8 +43,11 @@ class ViewChatViewController: UIViewController {
     
     @objc func onButtonSendTapped(){
         var currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy hh:mm:ss"
+        let formattedDate = dateFormatter.string(from: currentDate)
         if let textSend = viewChatView.messageField.text {
-            var newMessage = Message(name: userSelf.name, text: textSend, date: currentDate)
+            var newMessage = Message(name: userSelf.name, text: textSend, date: formattedDate)
             //add data to database
             //send request to refresh data and reload table or call getAllChats
         }
@@ -56,12 +61,14 @@ class ViewChatViewController: UIViewController {
 
     extension ViewChatViewController: UITableViewDelegate, UITableViewDataSource{
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return contactNames.count //this has to be changed to chat messages count
+            return chatList.count //this has to be changed to chat messages count
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "names", for: indexPath) as! ContactsTableViewCell
-            cell.labelName.text = contactNames[indexPath.row] //change to chat messages array
+            let cell = tableView.dequeueReusableCell(withIdentifier: "names", for: indexPath) as! ChatTableViewCell
+            cell.labelText.text = chatList[indexPath.row].text
+            cell.labelName.text = chatList[indexPath.row].name
+            cell.labelTime.text = chatList[indexPath.row].date
             return cell
         }
         

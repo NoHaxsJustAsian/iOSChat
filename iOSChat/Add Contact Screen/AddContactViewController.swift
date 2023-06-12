@@ -45,7 +45,6 @@ class AddContactViewController: UIViewController {
                 saveContactToFireStore(contact: contact)
             }
         }
-        
     }
     
     //MARK: logic to add a contact to Firestore...

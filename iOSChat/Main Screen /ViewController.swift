@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
     let mainScreen = MainScreenView()
     
-    var contactsList = [Contact]()
+    var usersList = [User]()
     
     var handleAuth: AuthStateDidChangeListenerHandle?
     
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
                 self.mainScreen.floatingButtonAddContact.isHidden = true
                 
                 //MARK: Reset tableView...
-                self.contactsList.removeAll()
+                self.usersList.removeAll()
                 self.mainScreen.tableViewContacts.reloadData()
                 
                 //MARK: Sign in bar button...
@@ -60,16 +60,16 @@ class ViewController: UIViewController {
                     .collection("contacts")
                     .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
                         if let documents = querySnapshot?.documents{
-                            self.contactsList.removeAll()
+                            self.usersList.removeAll()
                             for document in documents{
                                 do{
-                                    let contact  = try document.data(as: Contact.self)
-                                    self.contactsList.append(contact)
+                                    let users  = try document.data(as: User.self)
+                                    self.usersList.append(users)
                                 }catch{
                                     print(error)
                                 }
                             }
-                            self.contactsList.sort(by: {$0.name < $1.name})
+                            self.usersList.sort(by: {$0.name < $1.name})
                             self.mainScreen.tableViewContacts.reloadData()
                         }
                     })
@@ -115,10 +115,11 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(addContactController, animated: true)
     }
     
-    func openChat(contact: Contact){
-        //uses own id and selected contact id to search for their chat number.
-        //delegates chat id to next screen so data is loaded properly
-        //pushes chatView in nav stack.
+    func openChat(user: User){
+        let viewChatViewController = ViewChatViewController()
+        viewChatViewController.userSelf = self.currentUser
+        viewChatViewController.userOther = user
+        navigationController?.pushViewController(viewChatViewController, animated: true)
     }
 }
 

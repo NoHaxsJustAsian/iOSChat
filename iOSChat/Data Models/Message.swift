@@ -12,9 +12,9 @@ struct Message: Codable{
     @DocumentID var id: String?
     var name: String
     var text: String
-    var date: Date
+    var date: String
     
-    init(name: String, text: String, date: Date) {
+    init(name: String, text: String, date: String) {
         self.name = name
         self.text = text
         self.date = date

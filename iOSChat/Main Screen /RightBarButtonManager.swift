@@ -122,7 +122,7 @@ extension ViewController{
                 //MARK: user authenticated...
                 //MARK: can you hide the progress indicator here?
             }else{
-                showAlert(title: "Error!", message: "No user found or wrong password!")
+                self.showAlert(title: "Error!", message: "No user found or wrong password!")
             }
             
         })
