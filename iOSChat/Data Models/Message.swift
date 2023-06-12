@@ -9,7 +9,6 @@ import Foundation
 import FirebaseFirestoreSwift
 
 struct Message: Codable{
-    @DocumentID var id: String?
     var name: String
     var text: String
     var date: String

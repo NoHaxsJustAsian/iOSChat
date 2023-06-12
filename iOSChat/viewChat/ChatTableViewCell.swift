@@ -19,12 +19,14 @@ class ChatTableViewCell: UITableViewCell {
         
         setupWrapperCellView()
         setupLabelName()
+        setupLabelText()
+        setupLabelTime()
         
         initConstraints()
     }
 
     func setupWrapperCellView(){
-        wrapperCellView = UITableViewCell()
+        wrapperCellView = UIView()
         
         wrapperCellView.backgroundColor = .white
         wrapperCellView.layer.cornerRadius = 4.0
@@ -43,7 +45,7 @@ class ChatTableViewCell: UITableViewCell {
         wrapperCellView.addSubview(labelName)
     }
     
-    func setuplabelText(){
+    func setupLabelText(){
         labelText = UILabel()
         labelText.font = UIFont.boldSystemFont(ofSize: 16)
         labelText.translatesAutoresizingMaskIntoConstraints = false
@@ -68,11 +70,11 @@ class ChatTableViewCell: UITableViewCell {
             labelName.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 10),
             labelName.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: -10),
             
-            labelText.topAnchor.constraint(equalTo: labelName.topAnchor, constant: 8),
+            labelText.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 8),
             labelText.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 10),
             labelText.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: -10),
             
-            labelTime.topAnchor.constraint(equalTo: labelText.topAnchor, constant: 8),
+            labelTime.topAnchor.constraint(equalTo: labelText.bottomAnchor, constant: 8),
             labelTime.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 10),
             labelTime.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: -10),
             labelTime.bottomAnchor.constraint(equalTo: wrapperCellView.bottomAnchor, constant: -8),

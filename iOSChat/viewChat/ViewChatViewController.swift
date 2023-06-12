@@ -26,92 +26,114 @@ class ViewChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "" //User Other's Name
-        
+        title = ""
         viewChatView.buttonSend.addTarget(self, action: #selector(onButtonSendTapped), for: .touchUpInside)
         users.append(self.userSelf.name)
         users.append(self.userOther.name)
         sortedUsers = users.sorted{$0 < $1}
-        getChatID()
-        getAllChats()
-        
-        //load entire fucking table
-        //let indexPath = IndexPath(row: chatList.count - 1, section: 0)
-        //viewChatView.tableViewChat.scrollToRow(at: indexPath, at: .none, animated: false)
-
-        
+        getChatID { (chatID) in
+            if let chatID = chatID {
+                self.chatID = chatID
+                self.getAllChats(self.chatID)
+            }
+        }
+        viewChatView.tableViewChat.delegate = self
+        viewChatView.tableViewChat.dataSource = self
     }
     
-    @objc func onButtonSendTapped(){
+    @objc func onButtonSendTapped() {
+        guard let chatID = self.chatID,
+              let text = self.viewChatView.messageField.text,
+              text.count > 0 else {
+            print("Message field is empty.")
+            return
+        }
+
         let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy hh:mm:ss"
         let formattedDate = dateFormatter.string(from: currentDate)
-        if let textSend = viewChatView.messageField.text {
-            var newMessage = Message(name: userSelf.name, text: textSend, date: formattedDate)
-            let chatRef = database.collection("chats").document(self.chatID)
+
+        let newMessage = Message(name: userSelf.name, text: text, date: formattedDate)
+        
+        do {
+            let encodedMessage = try Firestore.Encoder().encode(newMessage)
+            
+            let chatRef = self.database.collection("chats").document(chatID)
             chatRef.updateData([
-                "messages": FieldValue.arrayUnion([newMessage])
-            ])
-            getAllChats()
-        }
-    }
-    
-    func getAllChats(){
-        var messagesRef = self.database.collection("chats").document(self.chatID)
-                messagesRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        if let dbMessages = document.get("messages") as? [[String: Any]] {
-                            var fetchedMessages: [Message] = []
-                            for dbMessage in dbMessages {
-                                do {
-                                    let data = try JSONSerialization.data(withJSONObject: dbMessage, options: [])
-                                    let message = try JSONDecoder().decode(Message.self, from: data)
-                                    fetchedMessages.append(message)
-                                } catch {
-                                    print("Error decoding message: \(error)")
-                                }
-                            }
-                            // Update your local list with the fetched messages
-                            self.chatList = fetchedMessages
-                            print("Fetched Messages: \(self.chatList)")
-                        } else {
-                            print("No messages found")
-                        }
-                    } else {
-                        print("Document does not exist")
-                    }
-                }
-        viewChatView.tableViewChat.reloadData()
-    }
-    
-    
-    func getChatID(){
-            self.database.collection("chats").getDocuments { (querySnapshot, error) in
-                if let error = error {
-                    print("Error getting documents: \(error)")
+                "messages": FieldValue.arrayUnion([encodedMessage])
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
                 } else {
-                    for document in querySnapshot!.documents {
-                        if (document.data()["userids"] as? [String] == self.sortedUsers) {
-                            self.chatID = document.documentID
-                        }
-                    }
-                    if (self.chatID == nil) {
-                        let newChatRef = self.database.collection("chats").addDocument(data: [
-                            "userids": self.sortedUsers,
-                            "messages": [String]()
-                        ]) { error in
-                            if let error = error {
-                                print("Error adding document: \(error)")
-                            }
-                        }
-                        self.chatID = newChatRef.documentID
-                        print("chatID =", self.chatID)
-                        print("chatRef =", newChatRef.documentID)
-                    }
+                    print("Document successfully updated")
+                    self.viewChatView.messageField.text = "" // clear the text field
+                    self.getAllChats(self.chatID) // fetch all messages
                 }
             }
+        } catch let error {
+            print("Error encoding message: \(error)")
         }
+    }
+    
+    func getChatID(completion: @escaping (String?) -> Void) {
+        self.database.collection("chats").getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+                completion(nil)
+            } else {
+                for document in querySnapshot!.documents {
+                    if (document.data()["userids"] as? [String] == self.sortedUsers) {
+                        self.chatID = document.documentID
+                    }
+                }
+                if (self.chatID == nil) {
+                    let newChatRef = self.database.collection("chats").addDocument(data: [
+                        "userids": self.sortedUsers,
+                        "messages": [String]()
+                    ]) { error in
+                        if let error = error {
+                            print("Error adding document: \(error)")
+                        }
+                    }
+                    self.chatID = newChatRef.documentID
+                    print("chatID =", self.chatID)
+                    print("chatRef =", newChatRef.documentID)
+                }
+                completion(self.chatID)
+            }
+        }
+    }
+
+    func getAllChats(_ chatID: String) {
+        let messagesRef = self.database.collection("chats").document(chatID)
+        messagesRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                if let dbMessages = document.get("messages") as? [[String: Any]] {
+                    var fetchedMessages: [Message] = []
+                    for dbMessage in dbMessages {
+                        do {
+                            let data = try JSONSerialization.data(withJSONObject: dbMessage, options: [])
+                            let message = try JSONDecoder().decode(Message.self, from: data)
+                            fetchedMessages.append(message)
+                        } catch {
+                            print("Error decoding message: \(error)")
+                        }
+                    }
+                    // Update your local list with the fetched messages
+                    self.chatList = fetchedMessages
+                    print("Fetched Messages: \(self.chatList)")
+                } else {
+                    print("No messages found")
+                }
+            } else {
+                print("Document does not exist")
+            }
+            DispatchQueue.main.async {
+                self.viewChatView.tableViewChat.reloadData()
+            }
+        }
+    }
 }
 
 extension ViewChatViewController: UITableViewDelegate, UITableViewDataSource{
