@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  App12
-//
-//  Created by Sakib Miazi on 6/1/23.
-//
-
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
@@ -32,6 +25,7 @@ class ViewController: UIViewController {
 
         //MARK: handling if the Authentication state is changed (sign in, sign out, register)...
         handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
+            print("auth user: ", user?.uid)
             if user == nil{
                 //MARK: not signed in...
                 self.currentUser = nil
