@@ -36,8 +36,6 @@ class ViewController: UIViewController {
                 //MARK: not signed in...
                 self.currentUser = nil
                 self.mainScreen.labelText.text = "Please sign in to see the chats!"
-                self.mainScreen.floatingButtonAddContact.isEnabled = false
-                self.mainScreen.floatingButtonAddContact.isHidden = true
                 
                 //MARK: Reset tableView...
                 self.usersList.removeAll()
@@ -50,16 +48,12 @@ class ViewController: UIViewController {
                 //MARK: the user is signed in...
                 self.currentUser = user
                 self.mainScreen.labelText.text = "Welcome \(user?.displayName ?? "Anonymous")!"
-                self.mainScreen.floatingButtonAddContact.isEnabled = true
-                self.mainScreen.floatingButtonAddContact.isHidden = false
                 
                 //MARK: Logout bar button...
                 self.setupRightBarButton(isLoggedin: true)
                 
                 //MARK: Observe Firestore database to display the contacts list...
                 self.database.collection("users")
-                    .document((self.currentUser?.email)!)
-                    .collection("contacts")
                     .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
                         if let documents = querySnapshot?.documents{
                             self.usersList.removeAll()
