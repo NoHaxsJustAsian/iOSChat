@@ -1,10 +1,3 @@
-//
-//  RegisterViewController.swift
-//  App12
-//
-//  Created by Sakib Miazi on 6/2/23.
-//
-
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
@@ -12,9 +5,9 @@ import FirebaseFirestore
 class RegisterViewController: UIViewController {
     
     let registerView = RegisterView()
-    
     let childProgressView = ProgressSpinnerViewController()
-    
+    let database = Firestore.firestore()
+
     override func loadView() {
         view = registerView
     }
@@ -27,6 +20,21 @@ class RegisterViewController: UIViewController {
     
     @objc func onRegisterTapped(){
         //MARK: creating a new user on Firebase...
-        registerNewAccount()
+        registerNewAccount { user, error in
+            if let error = error {
+                print("Error: \(error)")
+            } else if let user = user {
+                let name = self.registerView.textFieldName.text
+                self.database.collection("users").document(user.uid).setData([
+                    "name": name
+                ]) { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        print("Document added with ID: \(user.uid)")
+                    }
+                }
+            }
+        }
     }
 }
