@@ -18,6 +18,15 @@ class RegisterViewController: UIViewController {
         title = "Register"
     }
     
+    func showAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alert, animated: true)
+
+    }
+    
     @objc func onRegisterTapped(){
         //MARK: creating a new user on Firebase...
         registerNewAccount { user, error in
