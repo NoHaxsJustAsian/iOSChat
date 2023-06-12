@@ -46,7 +46,7 @@ class RegisterView: UIView {
         textFieldPassword = UITextField()
         textFieldPassword.placeholder = "Password"
         textFieldPassword.textContentType = .password
-        textFieldPassword.isSecureTextEntry = true
+        //textFieldPassword.isSecureTextEntry = true
         textFieldPassword.borderStyle = .roundedRect
         textFieldPassword.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldPassword)
