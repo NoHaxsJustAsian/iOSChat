@@ -89,7 +89,7 @@ class ViewChatView: UIView {
             contentWrapper.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
             contentWrapper.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, constant: -100),
             
-            tableViewChat.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 32),
+            tableViewChat.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             tableViewChat.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             tableViewChat.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
             tableViewChat.bottomAnchor.constraint(equalTo: bottomAddView.topAnchor),

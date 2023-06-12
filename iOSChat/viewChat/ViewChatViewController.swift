@@ -26,7 +26,7 @@ class ViewChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = ""
+        title = userOther.name
         viewChatView.buttonSend.addTarget(self, action: #selector(onButtonSendTapped), for: .touchUpInside)
         users.append(self.userSelf.name)
         users.append(self.userOther.name)
@@ -146,17 +146,25 @@ extension ViewChatViewController: UITableViewDelegate, UITableViewDataSource{
         cell.labelText.text = chatList[indexPath.row].text
         cell.labelName.text = chatList[indexPath.row].name
         cell.labelTime.text = chatList[indexPath.row].date
+        cell.selectionStyle = .none
+        cell.isUserInteractionEnabled = false
         if chatList[indexPath.row].name == userSelf.name {
-            cell.backgroundColor = UIColor.blue
+            cell.wrapperCellView.backgroundColor = UIColor.blue
             cell.labelText.textAlignment = .right
             cell.labelName.textAlignment = .right
             cell.labelTime.textAlignment = .right
+            cell.labelText.textColor = UIColor.white
+            cell.labelName.textColor = UIColor.white
+            cell.labelTime.textColor = UIColor.white
         }
         else{
-            cell.backgroundColor = UIColor.gray
+            cell.wrapperCellView.backgroundColor = UIColor.gray
             cell.labelText.textAlignment = .left
             cell.labelName.textAlignment = .left
             cell.labelTime.textAlignment = .left
+            cell.labelText.textColor = UIColor.black
+            cell.labelName.textColor = UIColor.black
+            cell.labelTime.textColor = UIColor.black
         }
         return cell
     }
