@@ -114,5 +114,11 @@ class ViewController: UIViewController {
         addContactController.currentUser = self.currentUser
         navigationController?.pushViewController(addContactController, animated: true)
     }
+    
+    func openChat(contact: Contact){
+        //uses own id and selected contact id to search for their chat number.
+        //delegates chat id to next screen so data is loaded properly
+        //pushes chatView in nav stack.
+    }
 }
 

@@ -24,6 +24,9 @@
 		F25AABC12A369573001C9776 /* RegisterProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABBC2A369572001C9776 /* RegisterProgressIndicatorManager.swift */; };
 		F25AABC22A369573001C9776 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABBE2A369572001C9776 /* RegisterView.swift */; };
 		F25AABC32A369573001C9776 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABBF2A369572001C9776 /* RegisterViewController.swift */; };
+		F25AABC82A3698D1001C9776 /* ViewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABC72A3698D1001C9776 /* ViewChatViewController.swift */; };
+		F25AABCA2A3698F1001C9776 /* ViewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABC92A3698F1001C9776 /* ViewChatView.swift */; };
+		F25AABCC2A369B01001C9776 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AABCB2A369B01001C9776 /* ChatTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		F25AABBC2A369572001C9776 /* RegisterProgressIndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		F25AABBE2A369572001C9776 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		F25AABBF2A369572001C9776 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F25AABC72A3698D1001C9776 /* ViewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChatViewController.swift; sourceTree = "<group>"; };
+		F25AABC92A3698F1001C9776 /* ViewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewChatView.swift; sourceTree = "<group>"; };
+		F25AABCB2A369B01001C9776 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 				F25AAB7D2A368F59001C9776 /* Assets.xcassets */,
 				F25AAB7F2A368F59001C9776 /* LaunchScreen.storyboard */,
 				F25AAB822A368F59001C9776 /* Info.plist */,
+				F25AABC42A3698A9001C9776 /* viewChat */,
 				F25AABBA2A369572001C9776 /* Register Screen */,
 				F25AABB42A369540001C9776 /* Add Contact Screen */,
 				F25AABB12A369535001C9776 /* Data Models */,
@@ -189,6 +196,16 @@
 				F25AABBE2A369572001C9776 /* RegisterView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F25AABC42A3698A9001C9776 /* viewChat */ = {
+			isa = PBXGroup;
+			children = (
+				F25AABC72A3698D1001C9776 /* ViewChatViewController.swift */,
+				F25AABCB2A369B01001C9776 /* ChatTableViewCell.swift */,
+				F25AABC92A3698F1001C9776 /* ViewChatView.swift */,
+			);
+			path = viewChat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,7 +340,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F25AABAC2A369521001C9776 /* ViewController.swift in Sources */,
+				F25AABC82A3698D1001C9776 /* ViewChatViewController.swift in Sources */,
 				F25AABB92A369540001C9776 /* AddContactView.swift in Sources */,
+				F25AABCA2A3698F1001C9776 /* ViewChatView.swift in Sources */,
 				F25AABC22A369573001C9776 /* RegisterView.swift in Sources */,
 				F25AABAE2A369521001C9776 /* RightBarButtonManager.swift in Sources */,
 				F25AABC02A369573001C9776 /* RegisterFirebaseManager.swift in Sources */,
@@ -332,6 +351,7 @@
 				F25AABAF2A369521001C9776 /* ContactsTableViewCell.swift in Sources */,
 				F25AABC12A369573001C9776 /* RegisterProgressIndicatorManager.swift in Sources */,
 				F25AABC32A369573001C9776 /* RegisterViewController.swift in Sources */,
+				F25AABCC2A369B01001C9776 /* ChatTableViewCell.swift in Sources */,
 				F25AABB32A369535001C9776 /* Contact.swift in Sources */,
 				F25AAB752A368F56001C9776 /* AppDelegate.swift in Sources */,
 				F25AABAD2A369521001C9776 /* ContactsTableViewManager.swift in Sources */,

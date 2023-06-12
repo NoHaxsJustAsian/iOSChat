@@ -20,4 +20,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         cell.labelPhone.text = "\(contactsList[indexPath.row].phone)"
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        openChat(contact: self.contactsList[indexPath.row])
+    }
 }

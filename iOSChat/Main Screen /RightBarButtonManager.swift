@@ -122,11 +122,19 @@ extension ViewController{
                 //MARK: user authenticated...
                 //MARK: can you hide the progress indicator here?
             }else{
-                //MARK: alert that no user found or password wrong...
+                showAlert(title: "Error!", message: "No user found or wrong password!")
             }
             
         })
     }
     
+    func showAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alert, animated: true)
+
+    }
 }
 
