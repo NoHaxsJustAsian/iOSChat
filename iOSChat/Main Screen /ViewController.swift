@@ -60,31 +60,25 @@ class ViewController: UIViewController {
                         print("User document does not exist")
                     }
                 }
-
+                
                 //MARK: Logout bar button...
                 self.setupRightBarButton(isLoggedin: true)
-
+                
                 //MARK: Observe Firestore database to display the contacts list...
-                self.database.collection("users")
-                    .document((self.currentUser?.name)!)
-                    .collection("contacts")
-                    .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
-                        if let documents = querySnapshot?.documents{
-                            self.usersList.removeAll()
-                            for document in documents{
-                                do{
-                                    if (document.documentID != self.currentUser?.id) {
-                                        let users  = try document.data(as: User.self)
-                                        self.usersList.append(users)
-                                    }
-                                }catch{
-                                    print(error)
-                                }
+                self.database.collection("users").getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err)")
+                    } else {
+                        var userIds: [String] = []
+                        for document in querySnapshot!.documents {
+                            if (document.documentID != self.currentUser?.id) {
+                                userIds.append(document.documentID)
                             }
-                            self.usersList.sort(by: {$0.name < $1.name})
-                            self.mainScreen.tableViewContacts.reloadData()
                         }
-                    })
+                        self.usersList.sort(by: {$0.name < $1.name})
+                        self.mainScreen.tableViewContacts.reloadData()
+                    }
+                }
             }
         }
     }
