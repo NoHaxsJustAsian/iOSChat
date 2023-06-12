@@ -1,7 +1,8 @@
 # iOSChat
 
-iOSChat is a live chat application for iOS that allows users to communicate with each other in real-time. The application provides features such as account registration and authentication using Firebase, a backend-as-a-service platform.
+iOSChat is a live chat application for iOS that allows users to communicate with each other in real-time. The application provides features such as account registration and authentication using Firebase.
 
+(for CS4520: Mobile Application Development (iOS))
 ## Features
 
 - Account registration: Users can create a new account by providing their email address and password.
