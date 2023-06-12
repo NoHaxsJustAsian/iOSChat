@@ -114,6 +114,7 @@ extension ViewController{
                 //MARK: user authenticated...
                 self.hideActivityIndicator()
             }else{
+                self.hideActivityIndicator()
                 self.showAlert(title: "Error!", message: "No user found or wrong password!")
             }
             
