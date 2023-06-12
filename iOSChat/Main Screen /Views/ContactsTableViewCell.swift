@@ -52,7 +52,7 @@ class ContactsTableViewCell: UITableViewCell {
             labelName.heightAnchor.constraint(equalToConstant: 20),
             labelName.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
             
-            wrapperCellView.heightAnchor.constraint(equalToConstant: 24)
+            wrapperCellView.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
 

@@ -73,21 +73,21 @@ class ViewChatView: UIView {
             bottomAddView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,constant: -8),
             bottomAddView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             bottomAddView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            buttonSend.bottomAnchor.constraint(equalTo: bottomAddView.bottomAnchor, constant: -8),
+            buttonSend.bottomAnchor.constraint(equalTo: bottomAddView.bottomAnchor, constant: -12),
             buttonSend.leadingAnchor.constraint(equalTo: bottomAddView.leadingAnchor, constant: 4),
             buttonSend.trailingAnchor.constraint(equalTo: bottomAddView.trailingAnchor, constant: -4),
             
-            messageField.bottomAnchor.constraint(equalTo: buttonSend.bottomAnchor, constant: -8),
+            messageField.bottomAnchor.constraint(equalTo: buttonSend.bottomAnchor, constant: -46),
             messageField.leadingAnchor.constraint(equalTo: buttonSend.leadingAnchor),
             messageField.trailingAnchor.constraint(equalTo: buttonSend.trailingAnchor),
             
-            bottomAddView.topAnchor.constraint(equalTo: buttonSend.topAnchor, constant: -8),
+            bottomAddView.bottomAnchor.constraint(equalTo: buttonSend.bottomAnchor, constant: 0),
             
             contentWrapper.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             contentWrapper.bottomAnchor.constraint(equalTo: bottomAddView.topAnchor),
             contentWrapper.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             contentWrapper.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
-            contentWrapper.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, constant: -50),
+            contentWrapper.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor, constant: -100),
             
             tableViewChat.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 32),
             tableViewChat.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
