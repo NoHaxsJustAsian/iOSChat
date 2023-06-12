@@ -31,11 +31,9 @@ class ViewChatViewController: UIViewController {
         //set userOther
         //var chat = // auth.findChat([user1 user2].sort)
         //load entire fucking table
-        //SCROLL TO BOTTOM USING THIS THING BELOW.
-        tableV_Chat.ScrollToRow(
-                NSIndexPath.FromRowSection(Messages.Length - 1, 0),
-                UITableViewScrollPosition.None,
-                false);
+        let indexPath = IndexPath(row: chatList.count - 1, section: 0)
+        viewChatView.tableViewChat.scrollToRow(at: indexPath, at: .none, animated: false)
+
         
     }
     
