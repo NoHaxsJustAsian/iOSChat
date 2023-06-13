@@ -137,8 +137,10 @@ class ViewChatViewController: UIViewController {
     }
     
     func scrollBottom(){
-        let lastIndexPath = IndexPath(row: chatList.count - 1, section: 0)
-        viewChatView.tableViewChat.scrollToRow(at: lastIndexPath, at: .none, animated: false)
+        if (chatList.count > 1) {
+            let lastIndexPath = IndexPath(row: chatList.count - 1, section: 0)
+            viewChatView.tableViewChat.scrollToRow(at: lastIndexPath, at: .none, animated: false)
+        }
     }
 }
 

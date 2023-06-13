@@ -47,6 +47,30 @@ class ViewController: UIViewController {
                             let user = try document.data(as: User.self)
                             self.currentUser = user
                             self.mainScreen.labelText.text = "Welcome \(user.name)!"
+                            
+                            // Fetch other users now, after currentUser is set
+                            self.database.collection("users").getDocuments { (querySnapshot, error) in
+                                if let error = error {
+                                    print("Error getting documents: \(error)")
+                                } else {
+                                    var userIds: [User] = []
+                                    for document in querySnapshot!.documents {
+                                        do {
+                                            if (document.documentID != self.currentUser?.id) {
+                                                let user = try document.data(as: User.self)
+                                                userIds.append(user)
+                                            }
+                                        } catch {
+                                            print("Error decoding user data: \(error)")
+                                        }
+                                    }
+                                    self.usersList = userIds.sorted { $0.name < $1.name }
+                                    print("userlist: ", self.usersList)
+                                    print("end")
+                                    self.mainScreen.tableViewContacts.reloadData()
+                                }
+                            }
+
                         } catch {
                             print("Error decoding user data: \(error)")
                         }
@@ -54,35 +78,13 @@ class ViewController: UIViewController {
                         print("User document does not exist")
                     }
                 }
-                
+
                 //MARK: Logout bar button...
                 self.setupRightBarButton(isLoggedin: true)
-                
-                //MARK: Observe Firestore database to display the contacts list...
-                self.database.collection("users").getDocuments { (querySnapshot, error) in
-                    if let error = error {
-                        print("Error getting documents: \(error)")
-                    } else {
-                        var userIds: [User] = []
-                        for document in querySnapshot!.documents {
-                            do {
-                                if (document.documentID != self.currentUser?.id) {
-                                    let user = try document.data(as: User.self)
-                                    userIds.append(user)
-                                }
-                            } catch {
-                                print("Error decoding user data: \(error)")
-                            }
-                        }
-                        self.usersList = userIds.sorted { $0.name < $1.name }
-                        print("userlist: ", self.usersList)
-                        print("end")
-                        self.mainScreen.tableViewContacts.reloadData()
-                    }
-                }
             }
         }
     }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
