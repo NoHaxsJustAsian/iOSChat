@@ -131,8 +131,14 @@ class ViewChatViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.viewChatView.tableViewChat.reloadData()
+                self.scrollBottom()
             }
         }
+    }
+    
+    func scrollBottom(){
+        let lastIndexPath = IndexPath(row: chatList.count - 1, section: 0)
+        viewChatView.tableViewChat.scrollToRow(at: lastIndexPath, at: .none, animated: false)
     }
 }
 
